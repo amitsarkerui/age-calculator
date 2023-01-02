@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="boxArea">
+        <h1> Enter your Birth date</h1>
+        <div class="inputBox">
+            <div class="date">
+                <input id="day" type="text" placeholder="Date">
+            </div>
+            <div class="month">
+                <input id="month" type="text" placeholder="Month">
+            </div>
+            <div class="year">
+                <input id="year" type="text" placeholder="Year">
+            </div>
+        </div>
+        <button class="btn" onclick="age()">Calculate</button>
+        <div class="line"></div>
+        <div class="ageOutput" id="op"> Your Age is:</div>
+    </div>
+
+
+    <script>
+        function age(){
+
+            let d1= document.getElementById("day").value;
+            let m1= document.getElementById("month").value;
+            let y1=document.getElementById("year").value;
+
+            let date = new Date();
+            let d2 = date.getDate();
+            let m2 = 1 + date.getMonth();
+            let y2 = date.getFullYear();
+
+            if(d1>d2){
+                d2 = d2+30;
+                m2 = m2-1;
+            }
+            if (m1>m2){
+                m2 = m2+12;
+                y2 = y2-1;
+            }
+            let d = d2-d1;
+            let m = m2-m1;
+            let y = y2-y1;
+
+            document.getElementById("op").innerHTML = "Your age is" + " " + y + " Years" + " " + m + " Month" + " " + d + " day";
+        }
+    </script>
+</body>
+</html>
